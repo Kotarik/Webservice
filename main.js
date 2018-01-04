@@ -12,6 +12,12 @@ var dbName = process.env.MONGODB_ADDON_DB;
 //http prends express et fait sa tambouille
 
 var http = require ('http').Server(app);
+
+var bodyParser = require ('body-parser')
+app.use(bodyParser.urlencoded({
+	extended: true
+}));
+
 app.get('/hello', function(req, res){
 	var coll = mongo.collection('users');
 	coll.find().toArray(function (err, res2){
