@@ -3,11 +3,11 @@ var db;
 var connected = false;
 
 module.exports = {
-  connect: function(url, callback){
-    MongoClient.connect(url, function(err, _db){
+  connect: function(url, dbName, callback){
+    MongoClient.connect(url, dbName, function(err, client){
       if (err) { throw new Error('Could not connect: '+err); }
       
-      db = _db;
+      db = client.db(dbName);
       connected = true;
       
       callback(db);

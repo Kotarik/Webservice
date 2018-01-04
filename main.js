@@ -6,14 +6,16 @@ var mongo = require('./mongo.js')
 
 //récuperation de la var d'env clever
 var uri = process.env.MONGODB_ADDON_URI;
+var dbName = process.env.MONGODB_ADDON_DB;
+
 
 //http prends express et fait sa tambouille
 
 var http = require ('http').Server(app);
 app.get('/hello', function(req, res){
 	var coll = mongo.collection('users');
-	coll.find().toArray(function (err, res){
-	res.end(res);
+	coll.find().toArray(function (err, res2){
+	res.end(res2);
 	return;
 	});
 	res.end('Salut tout le monde\n');
@@ -31,7 +33,7 @@ app.post('/hello', function(req, res){
 	})
 });
 
-mongo.connect(uri, function()
+mongo.connect(uri, dbName, function()
 {
 	console.log("MongoDB connected");
 	http.listen(8080, () => 
