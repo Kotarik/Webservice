@@ -9,7 +9,7 @@ var http = require ('http').Server(app);
 app.get('/hello', function(req, res){
 	res.end('Salut tout le monde\n');
 });
-http.listen(3000, () => {
+http.listen(8080, () => {
         console.log("server started");
 });
 
@@ -32,7 +32,7 @@ const server = http.createServer((req, res) => {
         res.end('Hello World');
 });
 
-server.listen (3000, '127.0.0.1', () => {
+server.listen (8080, '127.0.0.1', () => {
 	console.log("server started");
 });
 */
