@@ -20,7 +20,7 @@ mongo.connect(uri, function()
 	http.listen(8080, () => 
 	{
         console.log("server started");
-	}
+	});
 
 });
 
