@@ -15,14 +15,13 @@ var http = require ('http').Server(app);
 app.get('/hello', function(req, res){
 	var coll = mongo.collection('users');
 	coll.find().toArray(function (err, res2){
-	res.end(res2);
-	return;
+		res.end(res2);
+		return;
 	});
-	res.end('Salut tout le monde\n');
 });
 
 app.post('/hello', function(req, res){
-        var msg = req.body.name;
+        var name = req.body.name;
         var coll = mongo.collection('users);
 	coll.insert({name:name}, function(err, res){
 	if(err){
