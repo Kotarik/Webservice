@@ -14,13 +14,15 @@ app.get('/hello', function(req, res){
 	res.end('Salut tout le monde\n');
 });
 
-mongo.connect(uri, function(){
+mongo.connect(uri, function()
+{
 	console.log("MongoDB connected");
-	http.listen(8080, () => {
+	http.listen(8080, () => 
+	{
         console.log("server started");
-});
+	}
 
-}
+});
 
 
 
