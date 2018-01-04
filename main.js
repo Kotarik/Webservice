@@ -21,7 +21,7 @@ app.get('/hello', function(req, res){
 });
 
 app.post('/hello', function(req, res){
-        var name = req.body.name;
+        var name = req.param('name', null);
         var coll = mongo.collection('users);
 	coll.insert({name:name}, function(err, res){
 	if(err){
