@@ -11,7 +11,24 @@ var uri = process.env.MONGODB_ADDON_URI;
 
 var http = require ('http').Server(app);
 app.get('/hello', function(req, res){
+	var coll = mongo.collection('users');
+	coll.find().toArray(function (err, res){
+	res.end(res);
+	return;
+	});
 	res.end('Salut tout le monde\n');
+});
+
+app.post('/hello', function(req, res){
+        var msg = req.body.name;
+        var coll = mongo.collection('users);
+	coll.insert({name:name}, function(err, res){
+	if(err){
+		console.log(err)
+	} else {
+		console.log("added user " + name);
+		}
+	})
 });
 
 mongo.connect(uri, function()
