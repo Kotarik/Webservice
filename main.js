@@ -13,7 +13,7 @@ var dbName = process.env.MONGODB_ADDON_DB;
 
 var http = require ('http').Server(app);
 
-var bodyParser = require ('body-parser')
+var bodyParser = require ('body-parser');
 app.use(bodyParser.urlencoded({
 	extended: true
 }));
